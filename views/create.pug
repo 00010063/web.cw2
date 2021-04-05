@@ -1,0 +1,17 @@
+extends layout.pug 
+
+block content 
+    .container 
+    h1 Create Dream 
+
+    form.form(action="/create" method='POST')
+        label Author 
+        input.input(type="name" name='name')
+
+        label Title 
+        input.input(type="text" name='title')
+
+        label Write your dream 
+        textarea.input(type="text" name="description")
+
+        button.btn Create dream

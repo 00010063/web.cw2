@@ -1,5 +1,5 @@
 :root {
-    font-size: 15px;
+    font-size: 17px;
     color: #444;
 }
 
@@ -12,6 +12,7 @@
 a {
     text-decoration: none;
     color: inherit;
+    font-family: 'Indie Flower', cursive;
 }
 
 a:hover {
@@ -54,3 +55,19 @@ a:hover {
     background: rgb(54, 8, 54);
     color: rgb(230, 230, 230);
 }
+
+
+/* styling create page*/
+
+.form {
+    max-width: 60%;
+}
+
+.input {
+    display: block;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: inherit;
+}
+
+.btn {}
