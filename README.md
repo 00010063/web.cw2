@@ -26,7 +26,7 @@ http://localhost:7000
 
 ## Links
 - [Github] - Link to my project in github repository
-- [Glitch] (https://decorous-bevel-ease.glitch.me/) - my website in glitch
+- [Glitch] - My website in glitch
 
 ## Dependencies
 
@@ -35,6 +35,7 @@ Our project using this dependencies:
 - [Express] - fast node.js network app framework
 - [Body-Parser] - Node.js body parsing middleware.
 
-   [express]: <http://expressjs.com>
+   [Express]: <http://expressjs.com>
    [Body-Parser]: <https://github.com/expressjs/body-parser>
    [Github]: <https://github.com/00010063/web.cw2>
+   [Glitch]: <https://decorous-bevel-ease.glitch.me/>

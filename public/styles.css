@@ -15,7 +15,7 @@ a {
 }
 
 a:hover {
-    color: pink;
+    color: rgb(255, 255, 255);
 }
 
 .navbar {
@@ -125,4 +125,13 @@ a:hover {
     border: 1px solid rgb(58, 12, 58);
     font-size: 1.2rem;
     color: rgb(58, 12, 58);
+}
+
+
+/* background */
+
+body {
+    background-image: url("https://cdn.vox-cdn.com/thumbor/yBIv0WiZdZFK33OKurX4GPPH2vU=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/14748175/Gradients_05.png");
+    background-color: white;
+    background-size: cover;
 }

@@ -8,7 +8,7 @@ app.set('view engine', 'pug')
 app.use('/static', express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
-//localhost:8000
+//Local hosting :7000
 app.get('/', (req, res) => {
     res.render('home')
 })
@@ -49,22 +49,12 @@ app.post('/create', (req, res) => {
 
 
 app.get('/notes', (req, res) => {
-    fs.readFile('./data/notes.json', (err, data) => {
-        if (err) throw err
 
-        const notes = JSON.parse(data)
-        res.render('notes', { notes: notes })
-    })
-})
-
-app.get('/notes/:id', (req, res) => {
-    const id = rreq.params.id
     fs.readFile('./data/notes.json', (err, data) => {
         if (err) throw err
 
         const notes = JSON.parse(data)
 
-        const note = notes.filter(note => note.id == id)[0]
         res.render('notes', { notes: notes })
     })
 })
@@ -72,7 +62,15 @@ app.get('/notes/:id', (req, res) => {
 app.get('/notes/:id', (req, res) => {
     const id = req.params.id
 
-    res.render('details')
+    fs.readFile('./data/notes.json', (err, data) => {
+        if (err) throw err
+
+        const notes = JSON.parse(data)
+
+        const note = notes.filter(note => note.id == id)[0]
+
+        res.render('details', { note: note })
+    })
 })
 
 
