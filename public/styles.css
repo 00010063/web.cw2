@@ -118,3 +118,11 @@ a:hover {
     font-size: 1.2rem;
     color: red;
 }
+
+.success {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid rgb(58, 12, 58);
+    font-size: 1.2rem;
+    color: rgb(58, 12, 58);
+}

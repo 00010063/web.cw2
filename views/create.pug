@@ -3,6 +3,10 @@ extends layout.pug
 block content 
     div.container 
     h1 Create Dream 
+        if error
+            p.error Some error occured! Try again!
+        if success 
+            p.success Dream is added! 
 
     form.form(action="/create" method='POST')
         label Author 

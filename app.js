@@ -23,16 +23,38 @@ app.post('/create', (req, res) => {
     const description = req.body.description
 
     if (title.trim() === '' && description.trim() === '') {
-        res.render('create', { error: true, msg: 'You should not submit empty title' })
+        res.render('create', { error: true })
+    } else {
+        fs.readFile('./data/notes.json', (err, data) => {
+            if (err) throw err
+
+            const notes = JSON.parse(data)
+
+            notes.push({
+                id: id(),
+                name: name,
+                title: title,
+                description: description,
+            })
+
+            fs.writeFile('./data/notes.json', JSON.stringify(notes), err => {
+                if (err) throw err
+
+                res.render('create', { success: true })
+            })
+        })
     }
 
-    res.render('create')
 })
 
-const notes = ['Some awesome title', 'Some awesome title 2']
 
 app.get('/notes', (req, res) => {
-    res.render('notes', { notes: notes })
+    fs.readFile('./data/notes.json', (err, data) => {
+        if (err) throw err
+
+        const notes = JSON.parse(data)
+        res.render('notes', { notes: notes })
+    })
 })
 
 app.get('/notes/details', (req, res) => {
@@ -43,8 +65,12 @@ app.get('/posts', (req, res) => {
     res.render('posts')
 })
 
-app.listen(8000, err => {
+app.listen(7000, err => {
     if (err) console.log(err)
 
-    console.log('Server is running on port 8000...')
+    console.log('Server is running on port 7000...')
 })
+
+function id() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
