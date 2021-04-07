@@ -57,7 +57,7 @@ app.get('/notes', (req, res) => {
     })
 })
 
-app.get('/notes:id', (req, res) => {
+app.get('/notes/:id', (req, res) => {
     const id = rreq.params.id
     fs.readFile('./data/notes.json', (err, data) => {
         if (err) throw err
