@@ -57,9 +57,24 @@ app.get('/notes', (req, res) => {
     })
 })
 
-app.get('/notes/details', (req, res) => {
+app.get('/notes:id', (req, res) => {
+    const id = rreq.params.id
+    fs.readFile('./data/notes.json', (err, data) => {
+        if (err) throw err
+
+        const notes = JSON.parse(data)
+
+        const note = notes.filter(note => note.id == id)[0]
+        res.render('notes', { notes: notes })
+    })
+})
+
+app.get('/notes/:id', (req, res) => {
+    const id = req.params.id
+
     res.render('details')
 })
+
 
 app.get('/posts', (req, res) => {
     res.render('posts')
